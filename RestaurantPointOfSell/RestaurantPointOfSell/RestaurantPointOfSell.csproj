@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{683022F8-0C19-4DCD-BDF8-425D7A2CA4DF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RestaurantPointOfSell</RootNamespace>
+    <AssemblyName>RestaurantPointOfSell</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppSetting.Designer.cs">
+      <DependentUpon>AppSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BillPrint.Designer.cs">
+      <DependentUpon>BillPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CardOrCash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CardOrCash.Designer.cs">
+      <DependentUpon>CardOrCash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cash.Designer.cs">
+      <DependentUpon>Cash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtraItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExtraItems.Designer.cs">
+      <DependentUpon>ExtraItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageBills.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageBills.Designer.cs">
+      <DependentUpon>ManageBills.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rmodel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rmodel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rmodel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rmodel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rmodel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\T_appSettings.cs">
+      <DependentUpon>Rmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\T_extra.cs">
+      <DependentUpon>Rmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\T_invoice.cs">
+      <DependentUpon>Rmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\T_invoiceItems.cs">
+      <DependentUpon>Rmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\T_itemGroups.cs">
+      <DependentUpon>Rmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\t_items.cs">
+      <DependentUpon>Rmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\T_printBillQu.cs">
+      <DependentUpon>Rmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderNumber.Designer.cs">
+      <DependentUpon>OrderNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Performa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Performa.Designer.cs">
+      <DependentUpon>Performa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintReciept.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintReciept.Designer.cs">
+      <DependentUpon>PrintReciept.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecondDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecondDisplay.Designer.cs">
+      <DependentUpon>SecondDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectItem.Designer.cs">
+      <DependentUpon>SelectItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\DataTransfer.cs" />
+    <Compile Include="Services\dbConnection.cs" />
+    <Compile Include="Services\EncryptDecrypt.cs" />
+    <Compile Include="TableNumer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableNumer.Designer.cs">
+      <DependentUpon>TableNumer.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AppSetting.resx">
+      <DependentUpon>AppSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillPrint.resx">
+      <DependentUpon>BillPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CardOrCash.resx">
+      <DependentUpon>CardOrCash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cash.resx">
+      <DependentUpon>Cash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtraItems.resx">
+      <DependentUpon>ExtraItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageBills.resx">
+      <DependentUpon>ManageBills.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderNumber.resx">
+      <DependentUpon>OrderNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Performa.resx">
+      <DependentUpon>Performa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintReciept.resx">
+      <DependentUpon>PrintReciept.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecondDisplay.resx">
+      <DependentUpon>SecondDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectItem.resx">
+      <DependentUpon>SelectItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableNumer.resx">
+      <DependentUpon>TableNumer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\Rmodel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Rmodel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\Rmodel.edmx.diagram">
+      <DependentUpon>Rmodel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\iStock_char-chicken_Medium6.jpg" />
+    <Content Include="img\Kebab.jpg" />
+    <Content Include="img\steak2.jpg" />
+    <Content Include="img\Tagine-superJumbo.jpg" />
+    <Content Include="Model\Rmodel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Rmodel.edmx</DependentUpon>
+      <LastGenOutput>Rmodel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Rmodel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Rmodel.edmx</DependentUpon>
+      <LastGenOutput>Rmodel.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\receipt_printer.png" />
+    <None Include="Resources\256-256-64ee4756c2967bd231e115d6e41427b3-Receipt.png" />
+    <None Include="Resources\44-ftc-041.jpg" />
+    <None Include="Resources\1099-r1.png" />
+    <None Include="Resources\Website-Review-1.png" />
+    <None Include="Resources\44-ftc-04.jpg" />
+    <None Include="Resources\1099-r.png" />
+    <None Include="Resources\extra-badge-128.png" />
+    <None Include="Resources\2.png" />
+    <None Include="Resources\1.png" />
+    <None Include="Resources\20.png" />
+    <None Include="Resources\50.png" />
+    <None Include="Resources\10.png" />
+    <None Include="Resources\5.png" />
+    <None Include="Resources\5-fronta.jpg" />
+    <None Include="Resources\10-dollar-note.jpg" />
+    <None Include="Resources\aud20back.jpg" />
+    <None Include="Resources\aud50back.jpg" />
+    <None Include="Resources\aud100back.jpg" />
+    <None Include="Resources\1479829974_edit-clear.png" />
+    <None Include="Resources\close_red.png" />
+    <None Include="Resources\Aperture_1950_loading_t2.gif" />
+    <None Include="Resources\recette-de-tajine-de-poisson.jpg" />
+    <None Include="Resources\check-tick-icon-14141.png" />
+    <None Include="Resources\add_green.png" />
+    <None Include="Resources\Ancient-egypt-art-wallpapers-paintings-art-wall-hd-widescreen-3085.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

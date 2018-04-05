@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RPOSDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="T_appSettings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="value" Type="nvarchar(max)" />
+          <Property Name="item" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="T_extra">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemName" Type="nvarchar(max)" />
+          <Property Name="ItemGroupId" Type="int" />
+          <Property Name="Price" Type="float" />
+          <Property Name="img" Type="image" />
+        </EntityType>
+        <EntityType Name="T_invoice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Total" Type="float" />
+          <Property Name="CustomerName" Type="nvarchar(max)" />
+          <Property Name="TD" Type="nvarchar" MaxLength="50" />
+          <Property Name="Payment" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderTime" Type="datetime" />
+          <Property Name="OrderNo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="T_invoiceItems">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemName" Type="nvarchar(max)" />
+          <Property Name="ItemNo" Type="int" />
+          <Property Name="ItemPrice" Type="float" />
+          <Property Name="ItemComment" Type="nvarchar(max)" />
+          <Property Name="id_invoice" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_itemGroups">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="550" />
+          <Property Name="img" Type="image" />
+        </EntityType>
+        <EntityType Name="t_items">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="550" />
+          <Property Name="price" Type="float" />
+          <Property Name="img" Type="image" />
+          <Property Name="show" Type="bit" />
+          <Property Name="group_id" Type="int" />
+        </EntityType>
+        <EntityType Name="T_printBillQu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idInvoice" Type="int" />
+        </EntityType>
+        <EntityContainer Name="RPOSDBModelStoreContainer">
+          <EntitySet Name="T_appSettings" EntityType="Self.T_appSettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_extra" EntityType="Self.T_extra" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_invoice" EntityType="Self.T_invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_invoiceItems" EntityType="Self.T_invoiceItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_itemGroups" EntityType="Self.T_itemGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_items" EntityType="Self.t_items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_printBillQu" EntityType="Self.T_printBillQu" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RPOSDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="T_itemGroups">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="img" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="t_items">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Double" />
+          <Property Name="img" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="show" Type="Boolean" />
+          <Property Name="group_id" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="RPOSDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_itemGroups" EntityType="Self.T_itemGroups" />
+          <EntitySet Name="t_items" EntityType="Self.t_items" />
+          <EntitySet Name="T_appSettings" EntityType="RPOSDBModel.T_appSettings" />
+          <EntitySet Name="T_invoiceItems" EntityType="RPOSDBModel.T_invoiceItems" />
+          <EntitySet Name="T_invoice" EntityType="RPOSDBModel.T_invoice" />
+          <EntitySet Name="T_extra" EntityType="RPOSDBModel.T_extra" />
+          <EntitySet Name="T_printBillQu" EntityType="RPOSDBModel.T_printBillQu" />
+        </EntityContainer>
+        <EntityType Name="T_appSettings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="item" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_invoiceItems">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ItemNo" Type="Int32" />
+          <Property Name="ItemPrice" Type="Double" />
+          <Property Name="ItemComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id_invoice" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_invoice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Total" Type="Double" />
+          <Property Name="CustomerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Payment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderTime" Type="DateTime" Precision="3" />
+          <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_extra">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ItemGroupId" Type="Int32" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="img" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="T_printBillQu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idInvoice" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RPOSDBModelStoreContainer" CdmEntityContainer="RPOSDBEntities">
+          <EntitySetMapping Name="T_itemGroups">
+            <EntityTypeMapping TypeName="RPOSDBModel.T_itemGroups">
+              <MappingFragment StoreEntitySet="T_itemGroups">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="img" ColumnName="img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_items">
+            <EntityTypeMapping TypeName="RPOSDBModel.t_items">
+              <MappingFragment StoreEntitySet="t_items">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="show" ColumnName="show" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_appSettings">
+            <EntityTypeMapping TypeName="RPOSDBModel.T_appSettings">
+              <MappingFragment StoreEntitySet="T_appSettings">
+                <ScalarProperty Name="item" ColumnName="item" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_invoiceItems">
+            <EntityTypeMapping TypeName="RPOSDBModel.T_invoiceItems">
+              <MappingFragment StoreEntitySet="T_invoiceItems">
+                <ScalarProperty Name="id_invoice" ColumnName="id_invoice" />
+                <ScalarProperty Name="ItemComment" ColumnName="ItemComment" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="ItemNo" ColumnName="ItemNo" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_invoice">
+            <EntityTypeMapping TypeName="RPOSDBModel.T_invoice">
+              <MappingFragment StoreEntitySet="T_invoice">
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="TD" ColumnName="TD" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_extra">
+            <EntityTypeMapping TypeName="RPOSDBModel.T_extra">
+              <MappingFragment StoreEntitySet="T_extra">
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ItemGroupId" ColumnName="ItemGroupId" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_printBillQu">
+            <EntityTypeMapping TypeName="RPOSDBModel.T_printBillQu">
+              <MappingFragment StoreEntitySet="T_printBillQu">
+                <ScalarProperty Name="idInvoice" ColumnName="idInvoice" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
